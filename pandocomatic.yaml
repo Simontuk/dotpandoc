@@ -513,3 +513,18 @@ templates:
         - filters/testFilter
     metadata:
       #author: Joanna Doe
+
+
+  paper-with-refs-docx:
+    pandoc:
+      from: markdown
+      to: docx
+      standalone: true
+      filter: pandoc-citeproc
+      bibliography: ./core.bib # ./ means same directory as markdown file
+      citation-style: csl/apa.csl
+      reference-docx: templates/custom.docx
+      toc: true
+    metadata: 
+      notes-after-punctuation: false 
+      link-citations: true
