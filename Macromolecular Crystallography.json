@@ -1,0 +1,60 @@
+[
+  {
+    "abstract": "X-ray free-electron lasers provide femtosecond-duration pulses of hard X-rays with a peak brightness approximately one billion times greater than is available at synchrotron radiation facilities. One motivation for the development of such X-ray sources was the proposal to obtain structures of macromolecules, macromolecular complexes, and virus particles, without the need for crystallization, through diffraction measurements of single noncrystalline objects. Initial explorations of this idea and of outrunning radiation damage with femtosecond pulses led to the development of serial crystallography and the ability to obtain high-resolution structures of small crystals without the need for cryogenic cooling. This technique allows the understanding of conformational dynamics and enzymatics and the resolution of intermediate states in reactions over timescales of 100 fs to minutes. The promise of more photons per atom recorded in a diffraction pattern than electrons per atom contributing to an electron micrograph may enable diffraction measurements of single molecules, although challenges remain.",
+    "author": [
+      {
+        "family": "Chapman",
+        "given": "HN"
+      }
+    ],
+    "container-title": "Annu Rev Biochem",
+    "id": "Chapman2019",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "page": "35-58",
+    "publisher-place": "Center for Free-Electron Laser Science, DESY, 22607 Hamburg, Germany; email: henry.chapman\\@desy.de. Department of Physics, University of Hamburg, 22761 Hamburg, Germany. Centre for Ultrafast Imaging, University of Hamburg, 22761 Hamburg, Germany.",
+    "title": "X-ray free-electron lasers for the structure and dynamics of macromolecules.",
+    "type": "article-journal",
+    "volume": "88"
+  },
+  {
+    "abstract": "Time-resolved X-ray diffraction provides direct information on three-dimensional structures of reacting molecules and thus can be used to elucidate structural dynamics of chemical and biological reactions. In this review, we discuss time-resolved X-ray diffraction on small molecules and proteins with particular emphasis on its application to crystalline (crystallography) and liquid-solution (liquidography) samples. Time-resolved X-ray diffraction has been used to study picosecond and slower dynamics at synchrotrons and can now access even femtosecond dynamics with the recent arrival of X-ray free-electron lasers.",
+    "author": [
+      {
+        "family": "Ki",
+        "given": "H"
+      },
+      {
+        "family": "Oang",
+        "given": "KY"
+      },
+      {
+        "family": "Kim",
+        "given": "J"
+      },
+      {
+        "family": "Ihee",
+        "given": "H"
+      }
+    ],
+    "container-title": "Annu Rev Phys Chem",
+    "id": "Ki2017",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "page": "473-497",
+    "publisher-place": "Department of Chemistry, Korea Advanced Institute of Science; Technology (KAIST), Daejeon 305-701, South Korea; email: kihosung\\@kaist.ac.kr, wky3219\\@kaist.ac.kr, hyotcherl.ihee\\@kaist.ac.kr. Center for Nanomaterials; Chemical Reactions, Institute for Basic Science, Daejeon 305-701, South Korea. Department of Chemistry, Korea Advanced Institute of Science; Technology (KAIST), Daejeon 305-701, South Korea; email: kihosung\\@kaist.ac.kr, wky3219\\@kaist.ac.kr, hyotcherl.ihee\\@kaist.ac.kr. Center for Nanomaterials; Chemical Reactions, Institute for Basic Science, Daejeon 305-701, South Korea. Department of Chemistry, Inha University, Incheon 402-751, South Korea; email: jkim5\\@inha.ac.kr. Department of Chemistry, Korea Advanced Institute of Science; Technology (KAIST), Daejeon 305-701, South Korea; email: kihosung\\@kaist.ac.kr, wky3219\\@kaist.ac.kr, hyotcherl.ihee\\@kaist.ac.kr. Center for Nanomaterials; Chemical Reactions, Institute for Basic Science, Daejeon 305-701, South Korea.",
+    "title": "Ultrafast x-ray crystallography and liquidography.",
+    "type": "article-journal",
+    "volume": "68"
+  }
+]

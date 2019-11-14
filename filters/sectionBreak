@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# A filter to insert DOCX-Style Section breaks
+# Author: Simon Steiger
+#
+# VERSION: 1.0.0
+
+require "paru"
+require "paru/filter"
+
+def version(str)
+  str.gsub "::sectionbreak", "<w:p><w:pPr><w:sectPr><w:type w:val=\"nextPage\" /></w:sectPr></w:pPr></w:p>",
+                               format="openxml"
+end
+
+Paru::Filter.run do 
+  
+  with "Str" do |str|
+    str.string = version(str.string)
+  end

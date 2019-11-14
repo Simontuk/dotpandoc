@@ -34,8 +34,8 @@ templates:
         - pandoc-citeproc # process citations
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML and docx
-      bibliography: Core.json #JSON faster than BIB, symlinked to Pandoc data dir
-      csl: csl/apa-ian.csl
+      bibliography: All.json #JSON faster than BIB, symlinked to Pandoc data dir
+      csl: csl/cell.csl
       citation-abbreviations: cite-abbr.json # my journal abbreviations
     metadata:
       reference-section-title: References
@@ -74,7 +74,14 @@ templates:
         #- filters/removeHR #remove horizontal rules
         - filters/prependAll # prepends institute:, comments: and keywords: metadata into the text
         - filters/simplifyMetadata #collapse down metadata "author: [name: affiliation:]" to author:
+        - filters/removeHR
       reference-doc: templates/custom.docx
+    
+#-----------------------------------------------------------------------------
+  docx-protocol:
+    extends: [docx,refs,crossref]
+    pandoc: 
+      reference-doc: templates/Protocol_New.docx
 #-----------------------------------------------------------------------------
   docx-refs:
     extends: [docx,refs]
@@ -298,12 +305,12 @@ templates:
       titlepage-rule-height: 10
       #logo: "/Users/ian/Dropbox/Images/Logos/Platform-banner-ION.png"
       #logo-width: 350
-      mainfont: 'Greta Sans Pro'
+      mainfont: 'Source Sans Pro'
       mainfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
-      sansfont: 'Graublau Slab'
+      sansfont: 'Lato'
       sansfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
       monofont: 'Fira Code'
-      mathfont: 'Cambria Math'
+      mathfont: 'Cambria'
       mathfontoptions: 'math-style=ISO,bold-style=ISO'
       CJKmainfont: 'PingFang SC'
       CJKsansfont: 'PingFang SC'
@@ -327,7 +334,7 @@ templates:
 #-----------------------------------------------------------------------------
 # https://github.com/Wandmalfarbe/pandoc-latex-template
   eisvogel-crossref:
-    extends: [eisvogel,crossref]
+    extends: [crossref,eisvogel]
     pandoc:
       include-in-header: blank.txt
     metadata:
@@ -338,6 +345,13 @@ templates:
 # https://github.com/Wandmalfarbe/pandoc-latex-template
   eisvogel-pdf:
     extends: [eisvogel]
+    pandoc:
+      to: pdf
+      pdf-engine: 'xelatex'
+    cleanup: [] 
+#-----------------------------------------------------------------------------
+  eisvogel-protocol:
+    extends: [eisvogel-crossref]
     pandoc:
       to: pdf
       pdf-engine: 'xelatex'
