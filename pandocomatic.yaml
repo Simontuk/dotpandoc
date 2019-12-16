@@ -83,6 +83,12 @@ templates:
     pandoc: 
       reference-doc: templates/Protocol_New.docx
 #-----------------------------------------------------------------------------
+  docx-zusammenfassungen:
+    extends: [docx]
+    pandoc: 
+      reference-doc: templates/zusammenfassungen.docx
+
+#-----------------------------------------------------------------------------
   docx-refs:
     extends: [docx,refs]
 #-----------------------------------------------------------------------------

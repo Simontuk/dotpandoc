@@ -17774,7 +17774,7 @@
       ]
     },
     "page": "709-720",
-    "publisher-place": "“Biologie du Développement”, Observatoire Océanologique, UMR7009 CNRS/Université Pierre et Marie Curie (Paris VI), 06230, Villefranche-sur-mer, France.",
+    "publisher-place": "”Biologie du Développement”, Observatoire Océanologique, UMR7009 CNRS/Université Pierre et Marie Curie (Paris VI), 06230, Villefranche-sur-mer, France.",
     "title": "Polarised expression of foxb and foxq2 genes during development of the hydrozoan clytia hemisphaerica.",
     "type": "article-journal",
     "volume": "216"
@@ -64702,5 +64702,811 @@
     "id": "CDMarker2019",
     "title": "CD marker handbook",
     "type": "article-journal"
+  },
+  {
+    "abstract": "With ageing, intrinsic haematopoietic stem cell (HSC) activity decreases, resulting in impaired tissue homeostasis, reduced engraftment following transplantation and increased susceptibility to diseases. However, whether ageing also affects the HSC niche, and thereby impairs its capacity to support HSC function, is still widely debated. Here, by using in-vivo long-term label-retention assays we demonstrate that aged label-retaining HSCs, which are, in old mice, the most quiescent HSC subpopulation with the highest regenerative capacity and cellular polarity, reside predominantly in perisinusoidal niches. Furthermore, we demonstrate that sinusoidal niches are uniquely preserved in shape, morphology and number on ageing. Finally, we show that myeloablative chemotherapy can selectively disrupt aged sinusoidal niches in the long term, which is linked to the lack of recovery of endothelial Jag2 at sinusoids. Overall, our data characterize the functional alterations of the aged HSC niche and unveil that perisinusoidal niches are uniquely preserved and thereby protect HSCs from ageing.",
+    "author": [
+      {
+        "family": "Saçma",
+        "given": "M"
+      },
+      {
+        "family": "Pospiech",
+        "given": "J"
+      },
+      {
+        "family": "Bogeska",
+        "given": "R"
+      },
+      {
+        "dropping-particle": "de",
+        "family": "Back",
+        "given": "W"
+      },
+      {
+        "family": "Mallm",
+        "given": "JP"
+      },
+      {
+        "family": "Sakk",
+        "given": "V"
+      },
+      {
+        "family": "Soller",
+        "given": "K"
+      },
+      {
+        "family": "Marka",
+        "given": "G"
+      },
+      {
+        "family": "Vollmer",
+        "given": "A"
+      },
+      {
+        "family": "Karns",
+        "given": "R"
+      },
+      {
+        "family": "Cabezas-Wallscheid",
+        "given": "N"
+      },
+      {
+        "family": "Trumpp",
+        "given": "A"
+      },
+      {
+        "family": "Méndez-Ferrer",
+        "given": "S"
+      },
+      {
+        "family": "Milsom",
+        "given": "MD"
+      },
+      {
+        "family": "Mulaw",
+        "given": "MA"
+      },
+      {
+        "family": "Geiger",
+        "given": "H"
+      },
+      {
+        "family": "Florian",
+        "given": "MC"
+      }
+    ],
+    "container-title": "Nat Cell Biol",
+    "id": "Sacma2019",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "publisher-place": "Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Heidelberg Institute for Stem Cell Technology; Experimental Medicine gGmbH, Deutsches Krebsforschungszentrum, Division of Experimental Hematology, Heidelberg, Germany. Institute for Medical Informatics; Biometry, Faculty of Medicine Carl Gustav Carus, Technische Universität Dresden, Dresden, Germany. Deutsches Krebsforschungszentrum, Division of Chromatin Network, Heidelberg, Germany. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Division of Gastroenterology, Hepatology,; Nutrition, Cincinnati Children’s Hospital Medical Center; University of Cincinnati, Cincinnati, OH, USA. Max Planck Institute of Immunobiology; Epigenetics, Freiburg, Germany. Heidelberg Institute for Stem Cell Technology; Experimental Medicine gGmbH, Deutsches Krebsforschungszentrum, Division of Experimental Hematology, Heidelberg, Germany. Wellcome Trust-Medical Research Council Cambridge Stem Cell Institute; Department of Hematology, University of Cambridge, Cambridge, United Kingdom. National Health Service Blood & Transplant, Cambridge Biomedical Campus, Cambridge, United Kingdom. Heidelberg Institute for Stem Cell Technology; Experimental Medicine gGmbH, Deutsches Krebsforschungszentrum, Division of Experimental Hematology, Heidelberg, Germany. Molecular Oncology Institute of Experimental Cancer Research, Medical Faculty, University of Ulm, Ulm, Germany. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. Division of Experimental Hematology; Cancer Biology, Cincinnati Children’s Hospital Medical Center; University of Cincinnati, Cincinnati, OH, USA. Institute of Molecular Medicine, Stem Cells; Aging, Aging Research Center, Ulm University, Ulm, Germany. carolina.florian\\@uni-ulm.de. Center for Regenerative Medicine in Barcelona, Bellvitge Institute for Biomedical Research, Barcelona, Spain. carolina.florian\\@uni-ulm.de.",
+    "title": "Haematopoietic stem cells in perisinusoidal niches are protected from ageing.",
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Grün",
+        "given": "Dominic"
+      }
+    ],
+    "container-title": "Nature Methods",
+    "id": "Grun2019",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "title": "Revealing dynamics of gene expression variability in cell state space",
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Sankowski",
+        "given": "Roman"
+      },
+      {
+        "family": "Böttcher",
+        "given": "Chotima"
+      },
+      {
+        "family": "Masuda",
+        "given": "Takahiro"
+      },
+      {
+        "family": "Geirsdottir",
+        "given": "Laufey"
+      },
+      {
+        "family": "Sagar"
+      },
+      {
+        "family": "Sindram",
+        "given": "Elena"
+      },
+      {
+        "family": "Seredenina",
+        "given": "Tamara"
+      },
+      {
+        "family": "Muhs",
+        "given": "Andreas"
+      },
+      {
+        "family": "Scheiwe",
+        "given": "Christian"
+      },
+      {
+        "family": "Shah",
+        "given": "Mukesch Johannes"
+      },
+      {
+        "family": "Heiland",
+        "given": "Dieter Henrik"
+      },
+      {
+        "family": "Schnell",
+        "given": "Oliver"
+      },
+      {
+        "family": "Grün",
+        "given": "Dominic"
+      },
+      {
+        "family": "Priller",
+        "given": "Josef"
+      },
+      {
+        "family": "Prinz",
+        "given": "Marco"
+      }
+    ],
+    "container-title": "Nature Neuroscience",
+    "id": "Sankowski2019",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "title": "Mapping microglia states in the human brain through the integration of high-dimensional techniques",
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Meers",
+        "given": "Michael P."
+      },
+      {
+        "family": "Janssens",
+        "given": "Derek H."
+      },
+      {
+        "family": "Henikoff",
+        "given": "Steven"
+      }
+    ],
+    "container-title": "Molecular Cell",
+    "id": "Meers2019",
+    "issue": "3",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "page": "562-575.e5",
+    "title": "Pioneer factor-nucleosome binding events during differentiation are motif encoded",
+    "type": "article-journal",
+    "volume": "75"
+  },
+  {
+    "abstract": "Each year, the American Cancer Society estimates the numbers of new cancer cases and deaths that will occur in the United States in the current year and compiles the most recent data on cancer incidence, mortality, and survival. Incidence data were collected by the National Cancer Institute (Surveillance, Epidemiology, and End Results \\[SEER\\] Program), the Centers for Disease Control and Prevention (National Program of Cancer Registries), and the North American Association of Central Cancer Registries. Mortality data were collected by the National Center for Health Statistics. In 2016, 1,685,210 new cancer cases and 595,690 cancer deaths are projected to occur in the United States. Overall cancer incidence trends (13 oldest SEER registries) are stable in women, but declining by 3.1",
+    "author": [
+      {
+        "family": "Siegel",
+        "given": "RL"
+      },
+      {
+        "family": "Miller",
+        "given": "KD"
+      },
+      {
+        "family": "Jemal",
+        "given": "A"
+      }
+    ],
+    "container-title": "CA Cancer J Clin",
+    "id": "Siegel2016",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "page": "7-30",
+    "publisher-place": "Director, Surveillance Information, Surveillance; Health Services Research, American Cancer Society, Atlanta, GA. Epidemiologist, Surveillance; Health Services Research, American Cancer Society, Atlanta, GA. Vice President, Surveillance; Health Services Research, American Cancer Society, Atlanta, GA.",
+    "title": "Cancer statistics, 2016.",
+    "type": "article-journal",
+    "volume": "66"
+  },
+  {
+    "abstract": "To elucidate the mechanisms underlying relapse from chemotherapy in multiple myeloma, we performed a longitudinal study of 33 patients entered into Total Therapy protocols investigating them using gene expression profiling, high-resolution copy number arrays, and whole-exome sequencing. The study illustrates the mechanistic importance of acquired mutations in known myeloma driver genes and the critical nature of biallelic inactivation events affecting tumor suppressor genes, especially TP53, the end result being resistance to apoptosis and increased proliferation rates, which drive relapse by Darwinian-type clonal evolution. The number of copy number aberration changes and biallelic inactivation of tumor suppressor genes was increased in GEP70 high risk, consistent with genomic instability being a key feature of high risk. In conclusion, the study highlights the impact of acquired genetic events, which enhance the evolutionary fitness level of myeloma-propagating cells to survive multiagent chemotherapy and to result in relapse.",
+    "author": [
+      {
+        "family": "Weinhold",
+        "given": "N"
+      },
+      {
+        "family": "Ashby",
+        "given": "C"
+      },
+      {
+        "family": "Rasche",
+        "given": "L"
+      },
+      {
+        "family": "Chavan",
+        "given": "SS"
+      },
+      {
+        "family": "Stein",
+        "given": "C"
+      },
+      {
+        "family": "Stephens",
+        "given": "OW"
+      },
+      {
+        "family": "Tytarenko",
+        "given": "R"
+      },
+      {
+        "family": "Bauer",
+        "given": "MA"
+      },
+      {
+        "family": "Meissner",
+        "given": "T"
+      },
+      {
+        "family": "Deshpande",
+        "given": "S"
+      },
+      {
+        "family": "Patel",
+        "given": "PH"
+      },
+      {
+        "family": "Buzder",
+        "given": "T"
+      },
+      {
+        "family": "Molnar",
+        "given": "G"
+      },
+      {
+        "family": "Peterson",
+        "given": "EA"
+      },
+      {
+        "dropping-particle": "van",
+        "family": "Rhee",
+        "given": "F"
+      },
+      {
+        "family": "Zangari",
+        "given": "M"
+      },
+      {
+        "family": "Thanendrarajan",
+        "given": "S"
+      },
+      {
+        "family": "Schinke",
+        "given": "C"
+      },
+      {
+        "family": "Tian",
+        "given": "E"
+      },
+      {
+        "family": "Epstein",
+        "given": "J"
+      },
+      {
+        "family": "Barlogie",
+        "given": "B"
+      },
+      {
+        "family": "Davies",
+        "given": "FE"
+      },
+      {
+        "family": "Heuck",
+        "given": "CJ"
+      },
+      {
+        "family": "Walker",
+        "given": "BA"
+      },
+      {
+        "family": "Morgan",
+        "given": "GJ"
+      }
+    ],
+    "container-title": "Blood",
+    "id": "Weinhold2016",
+    "issue": "13",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "page": "1735-1744",
+    "publisher-place": "Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Department of Molecular; Experimental Medicine, Avera Cancer Institute, La Jolla, CA. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and. Myeloma Institute, University of Arkansas for Medical Sciences, Little Rock, AR; and.",
+    "title": "Clonal selection and double-hit events involving tumor suppressor genes underlie relapse in myeloma.",
+    "type": "article-journal",
+    "volume": "128"
+  },
+  {
+    "abstract": "Therapy for multiple myeloma (MM) has markedly changed in the past decade with the introduction of new drugs, but it is not clear whether the improvements have been sustained. We studied 1038 patients diagnosed between 2001 and 2010, grouping patients into two 5-year periods by diagnosis, 2001-2005 and 2006-2010. The median estimated follow-up for the cohort was 5.9 years with 47",
+    "author": [
+      {
+        "family": "Kumar",
+        "given": "SK"
+      },
+      {
+        "family": "Dispenzieri",
+        "given": "A"
+      },
+      {
+        "family": "Lacy",
+        "given": "MQ"
+      },
+      {
+        "family": "Gertz",
+        "given": "MA"
+      },
+      {
+        "family": "Buadi",
+        "given": "FK"
+      },
+      {
+        "family": "Pandey",
+        "given": "S"
+      },
+      {
+        "family": "Kapoor",
+        "given": "P"
+      },
+      {
+        "family": "Dingli",
+        "given": "D"
+      },
+      {
+        "family": "Hayman",
+        "given": "SR"
+      },
+      {
+        "family": "Leung",
+        "given": "N"
+      },
+      {
+        "family": "Lust",
+        "given": "J"
+      },
+      {
+        "family": "McCurdy",
+        "given": "A"
+      },
+      {
+        "family": "Russell",
+        "given": "SJ"
+      },
+      {
+        "family": "Zeldenrust",
+        "given": "SR"
+      },
+      {
+        "family": "Kyle",
+        "given": "RA"
+      },
+      {
+        "family": "Rajkumar",
+        "given": "SV"
+      }
+    ],
+    "container-title": "Leukemia",
+    "id": "Kumar2014",
+    "issue": "5",
+    "issued": {
+      "date-parts": [
+        [
+          2014
+        ]
+      ]
+    },
+    "page": "1122-1128",
+    "publisher-place": "Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Nephrology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. 1\\] Division of Hematology, Mayo Clinic, Rochester, MN, USA \\[2\\] Department of Internal Medicine, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA. Division of Hematology, Mayo Clinic, Rochester, MN, USA.",
+    "title": "Continued improvement in survival in multiple myeloma: Changes in early mortality and outcomes in older patients.",
+    "title-short": "Continued improvement in survival in multiple myeloma",
+    "type": "article-journal",
+    "volume": "28"
+  },
+  {
+    "abstract": "The approach to the patient with relapsed or relapsed/refractory multiple myeloma (RRMM) requires a careful evaluation of the results of previous treatments, the toxicities associated with them and an assessment of prognostic factors. Since the majority of patients will have received prior therapy with drug combinations including a proteasome inhibitor and/or an immunomodulatory drug (IMiD), it is the physician’s task to choose the right moment for the start of therapy and define with the patient which goals need to be achieved. The choice of regimen is usually based on prior responsiveness, drugs already received, prior adverse effects, the condition of the patient and expected effectiveness and tolerability. Many double and triple drug combinations are available. In addition, promising new drugs like pomalidomide, carfilzomib and monoclonal antibodies are, or will be, available shortly, while other options can be tried in clinical studies. Finally, supportive care and palliative options need to be considered in some patients. It is becoming increasingly more important to consider the therapeutic options for the whole duration of the disease rather than take a step by step approach, and to develop a systematic approach for each individual patient.",
+    "author": [
+      {
+        "family": "Sonneveld",
+        "given": "P"
+      },
+      {
+        "family": "Broijl",
+        "given": "A"
+      }
+    ],
+    "container-title": "Haematologica",
+    "id": "Sonneveld2016",
+    "issue": "4",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "page": "396-406",
+    "publisher-place": "Erasmus MC Cancer Institute, Department of Hematology, Rm Na824, Rotterdam, the Netherlands p.sonneveld\\@erasmusmc.nl. Erasmus MC Cancer Institute, Department of Hematology, Rm Na824, Rotterdam, the Netherlands.",
+    "title": "Treatment of relapsed and refractory multiple myeloma.",
+    "type": "article-journal",
+    "volume": "101"
+  },
+  {
+    "abstract": "The growth factor progranulin (PGRN) has been implicated in embryonic development, tissue repair, tumorigenesis, and inflammation, but its receptors remain unidentified. We report that PGRN bound directly to tumor necrosis factor receptors (TNFRs) and disturbed the TNFα-TNFR interaction. PGRN-deficient mice were susceptible to collagen-induced arthritis, and administration of PGRN reversed inflammatory arthritis. Atsttrin, an engineered protein composed of three PGRN fragments, exhibited selective TNFR binding. PGRN and Atsttrin prevented inflammation in multiple arthritis mouse models and inhibited TNFα-activated intracellular signaling. Collectively, these findings demonstrate that PGRN is a ligand of TNFR, an antagonist of TNFα signaling, and plays a critical role in the pathogenesis of inflammatory arthritis in mice. They also suggest new potential therapeutic interventions for various TNFα-mediated pathologies and conditions, including rheumatoid arthritis.",
+    "author": [
+      {
+        "family": "Tang",
+        "given": "W"
+      },
+      {
+        "family": "Lu",
+        "given": "Y"
+      },
+      {
+        "family": "Tian",
+        "given": "QY"
+      },
+      {
+        "family": "Zhang",
+        "given": "Y"
+      },
+      {
+        "family": "Guo",
+        "given": "FJ"
+      },
+      {
+        "family": "Liu",
+        "given": "GY"
+      },
+      {
+        "family": "Syed",
+        "given": "NM"
+      },
+      {
+        "family": "Lai",
+        "given": "Y"
+      },
+      {
+        "family": "Lin",
+        "given": "EA"
+      },
+      {
+        "family": "Kong",
+        "given": "L"
+      },
+      {
+        "family": "Su",
+        "given": "J"
+      },
+      {
+        "family": "Yin",
+        "given": "F"
+      },
+      {
+        "family": "Ding",
+        "given": "AH"
+      },
+      {
+        "family": "Zanin-Zhorov",
+        "given": "A"
+      },
+      {
+        "family": "Dustin",
+        "given": "ML"
+      },
+      {
+        "family": "Tao",
+        "given": "J"
+      },
+      {
+        "family": "Craft",
+        "given": "J"
+      },
+      {
+        "family": "Yin",
+        "given": "Z"
+      },
+      {
+        "family": "Feng",
+        "given": "JQ"
+      },
+      {
+        "family": "Abramson",
+        "given": "SB"
+      },
+      {
+        "family": "Yu",
+        "given": "XP"
+      },
+      {
+        "family": "Liu",
+        "given": "CJ"
+      }
+    ],
+    "container-title": "Science",
+    "id": "Tang2011",
+    "issue": "6028",
+    "issued": {
+      "date-parts": [
+        [
+          2011
+        ]
+      ]
+    },
+    "page": "478-484",
+    "publisher-place": "Department of Orthopaedic Surgery, New York University School of Medicine; NYU Hospital for Joint Diseases, New York, NY 10003, USA.",
+    "title": "The growth factor progranulin binds to tnf receptors and is therapeutic against inflammatory arthritis in mice.",
+    "type": "article-journal",
+    "volume": "332"
+  },
+  {
+    "abstract": "Relatively little is known about factors that initiate immunosuppression in tumors and act at the interface between tumor cells and host cells. In this article, we report novel immunosuppressive properties of the ribosomal protein S19 (RPS19), which is upregulated in human breast and ovarian cancer cells and released from apoptotic tumor cells, whereupon it interacts with the complement C5a receptor 1 expressed on tumor infiltrating myeloid-derived suppressor cells. This interaction promotes tumor growth by facilitating recruitment of these cells to tumors. RPS19 also induces the production of immunosuppressive cytokines, including TGF-β, by myeloid-derived suppressor cells in tumor-draining lymph nodes, leading to T cell responses skewed toward Th2 phenotypes. RPS19 promotes generation of regulatory T cells while reducing infiltration of CD8\\^+\\^ T cells into tumors. Reducing RPS19 in tumor cells or blocking the C5a receptor 1-RPS19 interaction decreases RPS19-mediated immunosuppression, impairs tumor growth, and delays the development of tumors in a transgenic model of breast cancer. This work provides initial preclinical evidence for targeting RPS19 for anticancer therapy enhancing antitumor T cell responses.",
+    "author": [
+      {
+        "family": "Markiewski",
+        "given": "MM"
+      },
+      {
+        "family": "Vadrevu",
+        "given": "SK"
+      },
+      {
+        "family": "Sharma",
+        "given": "SK"
+      },
+      {
+        "family": "Chintala",
+        "given": "NK"
+      },
+      {
+        "family": "Ghouse",
+        "given": "S"
+      },
+      {
+        "family": "Cho",
+        "given": "JH"
+      },
+      {
+        "family": "Fairlie",
+        "given": "DP"
+      },
+      {
+        "family": "Paterson",
+        "given": "Y"
+      },
+      {
+        "family": "Astrinidis",
+        "given": "A"
+      },
+      {
+        "family": "Karbowniczek",
+        "given": "M"
+      }
+    ],
+    "container-title": "J Immunol",
+    "id": "Markiewski2017",
+    "issue": "7",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "page": "2989-2999",
+    "publisher-place": "Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601; maciej.markiewski\\@ttuhsc.edu magdalena.karbowniczek\\@ttuhsc.edu. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Institute for Molecular Bioscience, The University of Queensland, Brisbane, Queensland 4072, Australia. Australian Research Council Centre of Excellence in Advanced Molecular Imaging, The University of Queensland, Brisbane, Queensland 4072, Australia; and. Department of Microbiology, School of Medicine, University of Pennsylvania, Philadelphia, PA 19104. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601. Department of Immunotherapeutics; Biotechnology, School of Pharmacy, Texas Tech University Health Science Center, Abilene, TX 79601; maciej.markiewski\\@ttuhsc.edu magdalena.karbowniczek\\@ttuhsc.edu.",
+    "title": "The ribosomal protein s19 suppresses antitumor immune responses via the complement c5a receptor 1.",
+    "type": "article-journal",
+    "volume": "198"
+  },
+  {
+    "abstract": "The importance of glutamine (Gln) metabolism in multiple myeloma (MM) cells and its potential role as a therapeutic target are still unknown, although it has been reported that human myeloma cell lines (HMCLs) are highly sensitive to Gln depletion. In this study, we found that both HMCLs and primary bone marrow (BM) CD138(+) cells produced large amounts of ammonium in the presence of Gln. MM patients have lower BM plasma Gln with higher ammonium and glutamate than patients with indolent monoclonal gammopathies. Interestingly, HMCLs expressed glutaminase (GLS1) and were sensitive to its inhibition, whereas they exhibited negligible expression of glutamine synthetase (GS). High GLS1 and low GS expression were also observed in primary CD138(+) cells. Gln-free incubation or treatment with the glutaminolytic enzyme l-asparaginase depleted the cell contents of Gln, glutamate, and the anaplerotic substrate 2-oxoglutarate, inhibiting MM cell growth. Consistent with the dependence of MM cells on extracellular Gln, a gene expression profile analysis, on both proprietary and published datasets, showed an increased expression of the Gln transporters SNAT1, ASCT2, and LAT1 by CD138(+) cells across the progression of monoclonal gammopathies. Among these transporters, only ASCT2 inhibition in HMCLs caused a marked decrease in Gln uptake and a significant fall in cell growth. Consistently, stable ASCT2 downregulation by a lentiviral approach inhibited HMCL growth in vitro and in a murine model. In conclusion, MM cells strictly depend on extracellular Gln and show features of Gln addiction. Therefore, the inhibition of Gln uptake is a new attractive therapeutic strategy for MM.",
+    "author": [
+      {
+        "family": "Bolzoni",
+        "given": "M"
+      },
+      {
+        "family": "Chiu",
+        "given": "M"
+      },
+      {
+        "family": "Accardi",
+        "given": "F"
+      },
+      {
+        "family": "Vescovini",
+        "given": "R"
+      },
+      {
+        "family": "Airoldi",
+        "given": "I"
+      },
+      {
+        "family": "Storti",
+        "given": "P"
+      },
+      {
+        "family": "Todoerti",
+        "given": "K"
+      },
+      {
+        "family": "Agnelli",
+        "given": "L"
+      },
+      {
+        "family": "Missale",
+        "given": "G"
+      },
+      {
+        "family": "Andreoli",
+        "given": "R"
+      },
+      {
+        "family": "Bianchi",
+        "given": "MG"
+      },
+      {
+        "family": "Allegri",
+        "given": "M"
+      },
+      {
+        "family": "Barilli",
+        "given": "A"
+      },
+      {
+        "family": "Nicolini",
+        "given": "F"
+      },
+      {
+        "family": "Cavalli",
+        "given": "A"
+      },
+      {
+        "family": "Costa",
+        "given": "F"
+      },
+      {
+        "family": "Marchica",
+        "given": "V"
+      },
+      {
+        "family": "Toscani",
+        "given": "D"
+      },
+      {
+        "family": "Mancini",
+        "given": "C"
+      },
+      {
+        "family": "Martella",
+        "given": "E"
+      },
+      {
+        "family": "Dall’Asta",
+        "given": "V"
+      },
+      {
+        "family": "Donofrio",
+        "given": "G"
+      },
+      {
+        "family": "Aversa",
+        "given": "F"
+      },
+      {
+        "family": "Bussolati",
+        "given": "O"
+      },
+      {
+        "family": "Giuliani",
+        "given": "N"
+      }
+    ],
+    "container-title": "Blood",
+    "id": "Bolzoni2016",
+    "issue": "5",
+    "issued": {
+      "date-parts": [
+        [
+          2016
+        ]
+      ]
+    },
+    "page": "667-679",
+    "publisher-place": "Myeloma Unit, Department of Clinical; Experimental Medicine, and. Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy Myeloma Unit, Department of Clinical; Experimental Medicine,; Hematology; BMT Center, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Myeloma Unit, Department of Clinical; Experimental Medicine, and. Laboratorio di Oncologia, Istituto Giannina Gaslini, Genoa, Italy Myeloma Unit, Department of Clinical; Experimental Medicine,; CoreLab, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Laboratory of Pre-clinical; Translational Research, Istituto di Ricovero e Cura a Carattere Scientifico, Referral Cancer Center of Basilicata, Rionero in Vulture, Italy Department of Oncology; Hemato-oncology, University of Milan, Milan, Italy Infectious Disease Unit; Hepatology Unit, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Unit of Occupational Medicine, Department of Clinical; Experimental Medicine, and. Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy; Unit of Occupational Medicine, Department of Clinical; Experimental Medicine, and. Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy Cardiac Surgery Unit, Department of Clinical; Experimental Medicine, University of Parma, Parma, Italy Infectious Disease Unit; Hepatology Unit, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Myeloma Unit, Department of Clinical; Experimental Medicine, and. Myeloma Unit, Department of Clinical; Experimental Medicine,; CoreLab, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Myeloma Unit, Department of Clinical; Experimental Medicine, and. U.O. di Anatomia Patologica, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy; and. U.O. di Anatomia Patologica, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy; and. Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy Department of Medical-Veterinary Science, University of Parma, Parma, Italy. Myeloma Unit, Department of Clinical; Experimental Medicine,; Hematology; BMT Center, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy Unit of General Pathology, Department of Biomedical, Biotechnological; Translational Sciences, University of Parma, Parma, Italy Myeloma Unit, Department of Clinical; Experimental Medicine,; Hematology; BMT Center, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy; CoreLab, Azienda Ospedaliero-Universitaria di Parma, Parma, Italy",
+    "title": "Dependence on glutamine uptake and glutamine addiction characterize myeloma cells: A new attractive target.",
+    "title-short": "Dependence on glutamine uptake and glutamine addiction characterize myeloma cells",
+    "type": "article-journal",
+    "volume": "128"
+  },
+  {
+    "author": [
+      {
+        "family": "Kim",
+        "given": "D"
+      },
+      {
+        "family": "Wang",
+        "given": "J"
+      },
+      {
+        "family": "Willingham",
+        "given": "S B"
+      },
+      {
+        "family": "Martin",
+        "given": "R"
+      },
+      {
+        "family": "Wernig",
+        "given": "G"
+      },
+      {
+        "family": "Weissman",
+        "given": "I L"
+      }
+    ],
+    "container-title": "Leukemia",
+    "id": "Kim2012",
+    "issue": "12",
+    "issued": {
+      "date-parts": [
+        [
+          2012
+        ]
+      ]
+    },
+    "page": "2538-2545",
+    "title": "Anti-cd47 antibodies promote phagocytosis and inhibit the growth of human myeloma cells",
+    "type": "article-journal",
+    "volume": "26"
   }
 ]
