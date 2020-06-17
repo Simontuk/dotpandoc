@@ -1,5 +1,3 @@
-% !TEX program = xelatex
-% !TEX encoding = UTF-8 Unicode
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -10,6 +8,9 @@ $if(dir)$
 $if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
 $endif$
+$endif$
+$if(CJKmainfont)$
+\PassOptionsToPackage{space}{xeCJK}
 $endif$
 %
 \documentclass[
@@ -56,19 +57,19 @@ $if(section-titles)$
 \setbeamertemplate{part page}{
   \centering
   \begin{beamercolorbox}[sep=16pt,center]{part title}
-  \usebeamerfont{part title}\insertpart\par
+    \usebeamerfont{part title}\insertpart\par
   \end{beamercolorbox}
 }
 \setbeamertemplate{section page}{
   \centering
   \begin{beamercolorbox}[sep=12pt,center]{part title}
-  \usebeamerfont{section title}\insertsection\par
+    \usebeamerfont{section title}\insertsection\par
   \end{beamercolorbox}
 }
 \setbeamertemplate{subsection page}{
   \centering
   \begin{beamercolorbox}[sep=8pt,center]{part title}
-  \usebeamerfont{subsection title}\insertsubsection\par
+    \usebeamerfont{subsection title}\insertsubsection\par
   \end{beamercolorbox}
 }
 \AtBeginPart{
@@ -89,7 +90,7 @@ $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
 $if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+\usepackage[${ for(fontfamilyoptions) }${ it }${ sep },${ endfor }]{$fontfamily$}
 $else$
 \usepackage{lmodern}
 $endif$
@@ -97,14 +98,14 @@ $if(linestretch)$
 \usepackage{setspace}
 $endif$
 \usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
 $if(mathspec)$
-  \ifxetex
+  \ifXeTeX
     \usepackage{mathspec}
   \else
     \usepackage{unicode-math}
@@ -115,10 +116,10 @@ $endif$
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 $if(mainfont)$
-    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+  \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
 $endif$
 $if(sansfont)$
-    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+  \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
 $endif$
 $if(monofont)$
   \setmonofont[$for(monofontoptions)$$monofontoptions$$sep$,$endfor$]{$monofont$}
@@ -128,7 +129,7 @@ $for(fontfamilies)$
 $endfor$
 $if(mathfont)$
 $if(mathspec)$
-  \ifxetex
+  \ifXeTeX
     \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
   \else
     \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
@@ -138,19 +139,19 @@ $else$
 $endif$
 $endif$
 $if(CJKmainfont)$
-  \ifxetex
-    \usepackage{xeCJK}
+  \ifXeTeX
+    \usepackage[]{xeCJK}
     \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
 $if(luatexjapresetoptions)$
-  \ifluatex
-    \usepackage[$for(luatexjapresetoptions)$$luatexjapresetoptions$$sep$,$endfor$]{luatexja-preset}
+  \ifLuaTeX
+    \usepackage[$for(luatexjapresetoptions)$$it$$sep$,$endfor$]{luatexja-preset}
   \fi
 $endif$
 $if(CJKmainfont)$
-  \ifluatex
-    \usepackage[$for(luatexjafontspecoptions)$$luatexjafontspecoptions$$sep$,$endfor$]{luatexja-fontspec}
+  \ifLuaTeX
+    \usepackage[$for(luatexjafontspecoptions)$$it$$sep$,$endfor$]{luatexja-fontspec}
     \setmainjfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
   \fi
 $endif$
@@ -195,7 +196,7 @@ $endif$
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+  \usepackage[$for(microtypeoptions)$$it$$sep$,$endfor$]{microtype}
   \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
 \usepackage[format=hang,labelfont=bf,labelsep=endash,font={sf,small}]{caption}
@@ -223,33 +224,40 @@ $endif$
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
 $if(title-meta)$
-            pdftitle={$title-meta$},
+  pdftitle={$title-meta$},
 $endif$
 $if(author)$
-            pdfauthor={$for(author)$$author.name$$sep$, $endfor$},
+  pdfauthor={${ for(author) }${ it.name }${ sep }, ${ endfor }},
+$endif$
+$if(lang)$
+  pdflang={$lang$},
 $endif$
 $if(subject)$
-            pdfsubject={$subject$},
+  pdfsubject={$subject$},
 $endif$
 $if(keywords)$
-            pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
 $endif$
 $if(colorlinks)$
-            colorlinks=true,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$Mahogany$endif$,
-            filecolor=$if(filecolor)$$filecolor$$else$Mahogany$endif$,
-            citecolor=$if(citecolor)$$citecolor$$else$Sepia$endif$,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$BrickRed$endif$,
+  colorlinks=true,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$Mahogany$endif$,
+  filecolor=$if(filecolor)$$filecolor$$else$Mahogany$endif$,
+  citecolor=$if(citecolor)$$citecolor$$else$Sepia$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$BrickRed$endif$,
 $else$
-            hidelinks,
+  hidelinks,
 $endif$
-            pdfcreator={Scrivomatic, Pandoc and LaTeX}}
+  pdfcreator={Scrivomatic, Pandoc and LaTeX}}
 \urlstyle{same} % disable monospaced font for URLs
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
 $if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$if(beamer)$
+\geometry{$for(geometry)$$geometry$$sep$,$endfor$}
+$else$
+\usepackage[$for(geometry)$$it$$sep$,$endfor$]{geometry}
+$endif$
 $endif$
 $if(beamer)$
 \newif\ifbibliography
@@ -286,7 +294,7 @@ $else$
 $endif$
 $endif$
 $if(graphics)$
-\usepackage{graphicx,grffile}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -309,7 +317,7 @@ $if(strikeout)$
 % Avoid problems with \sout in headers with hyperref
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 $if(numbersections)$
@@ -338,7 +346,7 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 $if(lang)$
-\ifxetex
+\ifXeTeX
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
   \usepackage{polyglossia}
   \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
@@ -353,11 +361,11 @@ $endif$
 \fi
 $endif$
 $if(dir)$
-\ifxetex
+\ifXeTeX
   % Load bidi as late as possible as it modifies e.g. graphicx
   \usepackage{bidi}
 \fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\ifPDFTeX % if pdftex
   \TeXXeTstate=1
   \newcommand{\RL}[1]{\beginR #1\endR}
   \newcommand{\LR}[1]{\beginL #1\endL}
@@ -370,15 +378,27 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+\usepackage[$if(biblio-style)$style=$it$,$endif$$for(biblatexoptions)$$it$$sep$,$endfor$]{biblatex}
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 $endif$
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
+  {\par}
+$endif$
 
 $if(title)$
 \usepackage{titling}
-\pretitle{\begin{center}\setstretch{1}\LARGE\sffamily\bfseries\itshape} 
+$if(linestretch)$
+\pretitle{\begin{center}\setstretch{1}\LARGE\sffamily\bfseries\itshape}
+$else$
+\pretitle{\begin{center}\LARGE\sffamily\bfseries\itshape}
+$endif$
 \posttitle{\par\end{center}} 
 \predate{\begin{center}\sffamily} 
 \postdate{\par\end{center}}
@@ -397,16 +417,16 @@ $endif$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \author{$for(author)$$author.name$\textsuperscript{$for(author.affiliation)$$author.affiliation$$sep$,$endfor$$if(author.correspondence)$*$endif$$if(author.equal_contributor)$†$endif$}$sep$ \and $endfor$}
+\ifPDFTeX % if pdftex
+  \author{$for(author)$$it.name$\textsuperscript{$for(author.affiliation)$$it.affiliation$$sep$,$endfor$$if(author.correspondence)$*$endif$$if(author.equal_contributor)$†$endif$}$sep$ \and $endfor$}
 \else
-  \author{$for(author)$$author.name$\textsuperscript{$for(author.affiliation)$$author.affiliation$$sep$,$endfor$$if(author.correspondence)$\fixfontB{✉︎}$endif$$if(author.equal_contributor)$†$endif$}$sep$ \and $endfor$}
+  \author{$for(author)$$it.name$\textsuperscript{$for(author.affiliation)$$it.affiliation$$sep$,$endfor$$if(author.correspondence)$\fixfontB{✉︎}$endif$$if(author.equal_contributor)$†$endif$}$sep$ \and $endfor$}
 \fi
 $endif$
 \date{$date$}
 $if(beamer)$
 $if(institute)$
-\institute{$for(institute)$\textsuperscript{$institute.index$} $institute.name$$sep$ \and $endfor$}
+\institute{$for(institute)$\textsuperscript{$it.index$} $it.name$$sep$ \and $endfor$}
 $endif$
 $if(titlegraphic)$
 \titlegraphic{\includegraphics{$titlegraphic$}}
@@ -433,14 +453,14 @@ $if(logo)$
 $endif$
 
 $if(institute)$
-\textsf{$for(institute)$\textsuperscript{$institute.index$} $institute.name$$sep$\quad\&\quad$endfor$}
+\textsf{$for(institute)$\textsuperscript{$it.index$} $it.name$$sep$\quad\&\quad$endfor$}
 $endif$
 
 $if(correspondence_list)$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-\textsf{* $for(correspondence_list)$\emph{$correspondence_list$}$sep$\quad\&\quad$endfor$}
+\ifPDFTeX % if pdftex
+\textsf{* $for(correspondence_list)$\emph{$it$}$sep$\quad\&\quad$endfor$}
 \else
-\textsf{\fixfontB{✉︎} $for(correspondence_list)$\emph{$correspondence_list$}$sep$\quad\&\quad$endfor$}
+\textsf{\fixfontB{✉︎} $for(correspondence_list)$\emph{$it$}$sep$\quad\&\quad$endfor$}
 \fi
 $endif$
 
@@ -448,7 +468,6 @@ $if(equal_contributors)$
 \textsf{\textsuperscript{†} \small{\emph{These authors contributed equally to this work.}}}
 $endif$
 \end{center}
-
 
 $if(abstract)$
 \begin{abstract}
@@ -459,14 +478,14 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
 $endif$
 $if(beamer)$
-\begin{frame}
+\begin{frame}[allowframebreaks]
 $if(toc-title)$
   \frametitle{$toc-title$}
 $endif$
@@ -494,6 +513,7 @@ $endif$
 $if(has-frontmatter)$
 \mainmatter
 $endif$
+
 $body$
 
 $if(has-frontmatter)$
@@ -519,6 +539,7 @@ $endif$
 
 $endif$
 $endif$
+
 $if(biblatex)$
 $if(beamer)$
 \begin{frame}[allowframebreaks]{$biblio-title$}
@@ -528,10 +549,10 @@ $if(beamer)$
 $else$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
 $endif$
-
 $endif$
+
 $for(include-after)$
 $include-after$
-
 $endfor$
+
 \end{document}
