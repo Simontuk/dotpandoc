@@ -30,14 +30,13 @@ templates:
     pandoc:
       standalone: true
       verbose: true # verbose by default
-      filter: 
-        - pandoc-citeproc # process citations
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML and docx
       bibliography: All.json #JSON faster than BIB, symlinked to Pandoc data dir
       csl: csl/cell.csl
       citation-abbreviations: cite-abbr.json # my journal abbreviations
       reference-links: true
+      citeproc: true
     metadata:
       cite-method: citeproc
       reference-section-title: References
@@ -179,12 +178,12 @@ templates:
       fontsize: '12pt'
       linestretch: '1.5'
       geometry: ['inner=2.2cm','outer=1.8cm','bottom=2.5cm','twoside']
-      mainfont: 'Greta Text Pro'
+      mainfont: 'Times New Roman'
       mainfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
-      sansfont: 'Greta Sans Pro'
+      sansfont: 'Arial'
       sansfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
       monofont: 'Fira Code'
-      mathfont: 'Cambria Math'
+      mathfont: 'Cambria'
       mathfontoptions: 'math-style=ISO,bold-style=ISO'
       CJKmainfont: 'Heiti SC'
       colorlinks: true
@@ -351,10 +350,10 @@ templates:
       shift-heading-level-by: 1
     metadata: 
       titlepage: true
-      titlepage-color: BB4433
-      titlepage-text-color: FFFFFF
-      titlepage-rule-color: FFFFFF
-      titlepage-rule-height: 10
+      titlepage-color: 
+      titlepage-text-color:
+      titlepage-rule-color:
+      titlepage-rule-height: 8
       caption-justification: justified
       toc-own-page: true
       listings-disable-line-numbers: false
@@ -376,11 +375,11 @@ templates:
       linkcolor: Mahogany
       citecolor: Sepia
       urlcolor: BrickRed
-      nonumberfigures: true
+      nonumberfigures: false
       lang: 'en-GB'
       disable-header-and-footer: false
       header-right:
-      header-left:
+      header-left: 
       header-center:
       footer-right:
       footer-left: 
@@ -394,7 +393,7 @@ templates:
   eisvogel-logo:
     extends: [eisvogel]
     metadata:
-      titlepage-background: /Users/ian/Dropbox/Images/Logos/backgroundlogo.pdf
+      titlepage-background: /Users/simonsteiger/.local/share/pandoc/templates/background7.pdf
       titlepage-text-color: 555555
       titlepage-rule-color: 555555
 #-----------------------------------------------------------------------------
@@ -407,6 +406,7 @@ templates:
       nonumberfigures: false
       titleDelim: '&nbsp;—&nbsp;'
       figPrefix: ['Fig.','Figs.']
+      tabPrefix: ["table","tables "]
 #-----------------------------------------------------------------------------
 # https://github.com/Wandmalfarbe/pandoc-latex-template
   eisvogel-pdf:
@@ -417,7 +417,7 @@ templates:
     cleanup: [] 
 #-----------------------------------------------------------------------------
   eisvogel-protocol:
-    extends: [eisvogel-crossref]
+    extends: [eisvogel,refs,crossref]
     pandoc:
       to: pdf
       pdf-engine: 'xelatex'
@@ -600,7 +600,7 @@ templates:
       from: markdown
       to: docx
       standalone: true
-      filter: pandoc-citeproc
+      citeproc: true
       bibliography: ./core.bib # ./ means same directory as markdown file
       citation-style: csl/apa.csl
       reference-docx: templates/custom.docx
