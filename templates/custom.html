@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
+  <meta name="generator" content="pandoc & pandocomatic" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 $if(title)$
   <meta name="title" content="$title$" />
@@ -14,31 +14,21 @@ $for(author)$
   <meta name="citation_author" content="$author.name$" />
 $endfor$
 $endif$
-$if(date)$
-  <meta name="citation_date" content="$date$" />
-$endif$
 $if(date-meta)$
   <meta name="dcterms.date" content="$date-meta$" />
 $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
+$if(description-meta)$
+  <meta name="description" content="$description-meta$" />
+$endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-$if(quotes)$
-      q { quotes: "“" "”" "‘" "’"; }
-$endif$
+  <style>
+    $styles.html()$
   </style>
-$if(highlighting-css)$
-  <style type="text/css">
-$highlighting-css$
-  </style>
-$endif$
 $for(css)$
-  <link rel="stylesheet" href="$css$">
+  <link rel="stylesheet" href="$css$" />
 $endfor$
 $if(math)$
   $math$
@@ -55,7 +45,7 @@ $for(include-before)$
 $include-before$
 $endfor$
 $if(title)$
-<header>
+<header id="title-block-header">
 <h1 class="title">$title$</h1>
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
@@ -64,13 +54,11 @@ $endif$
 $if(author)$
 <p class="author-list">
 $for(author)$
-  $if(author.last)$and $endif$<span property="author" typeof="Person">
-    $author.name$</span><sup>$for(author.affiliation)$$author.affiliation$$sep$,$endfor$
-    $if(author.correspondence)$<a href="mailto:$author.correspondence$">✉</a>$endif$
-    $if(author.equal_contributor)$†$endif$</sup>$sep$,
+  $if(author.last)$ and $endif$<span class="author" property="author" typeof="Person">$author.name$</span><sup>$if(author.affiliation)$$for(author.affiliation)$$author.affiliation$$sep$,$endfor$$endif$$if(author.correspondence)$<a href="mailto:$author.correspondence$">✉</a>$endif$$if(author.equal_contributor)$†$endif$</sup>$sep$, 
 $endfor$
 </p>
 $endif$
+
 $if(equal_contributors)$
 <p class="author_contributions"><sup>†</sup> Authors contributed equally to this work.</p>
 $endif$
@@ -85,7 +73,12 @@ $endif$
 
 $if(correspondence_list)$
 <div class="correspondence">
-  $for(correspondence_list)$<span class="correspondence-item">$correspondence_list$</span>$sep$    $endfor$
+  $for(correspondence_list)$<span class="correspondence-item">$correspondence_list$</span>$sep$ | $endfor$
+</div>
+$endif$
+$if(email_list)$
+<div class="email">
+  $for(email_list)$<span class="email-item">$email_list$</span>$sep$ | $endfor$
 </div>
 $endif$
 $if(abstract)$<p class="abstract" property="description">$abstract$</p>$endif$
@@ -96,14 +89,17 @@ $if(date)$
 $endif$
 </header>
 $endif$
+
 $if(toc)$
-<nav id="$idprefix$TOC">
+<nav id="$idprefix$TOC" role="doc-toc">
+$if(toc-title)$
+<h2 id="$idprefix$toc-title">$toc-title$</h2>
+$endif$
 $table-of-contents$
 </nav>
 $endif$
-<div id="content">
+
 $body$
-</div>
 $for(include-after)$
 $include-after$
 $endfor$

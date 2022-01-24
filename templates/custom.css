@@ -1,6 +1,6 @@
 body { 
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-	font-size: 16px;
+	font-family: "Greta Sans Pro", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	font-size: 18px;
 	margin: auto;
 	max-width: 29cm;
 }
@@ -9,7 +9,7 @@ body {
 q { quotes: "“" "”" "‘" "’"; }
 
 header {
-	font-family: "Athelas", "Palatino", "Avenir Next", sans-serif;
+	font-family: "Greta Text Pro", "Athelas", "Palatino", "Avenir Next", sans-serif;
 	margin: 0;
 	margin-bottom: 2em;
 	border-left: 7px solid rgb(90%,90%,90%);
@@ -17,7 +17,7 @@ header {
 }
 
 h1,h2,h3,h4,h5,h6 {
-	font-family: "Athelas", "Palatino", "Avenir Next", sans-serif;
+	font-family: "Greta Text Pro", "Athelas", "Palatino", "Avenir Next", sans-serif;
 	margin: 2rem 0rem 0.4rem 0.5rem;
 }
 
@@ -50,32 +50,44 @@ h1.title {
 
 @page { 
 	size: A4;
-	margin: 20mm;
+	margin: 18mm;
 	counter-increment: page;
-	/*prince-bleed: 5mm;
-	marks: crop cross;*/
+	/* prince-bleed: 5mm;
+	marks: crop cross; */
 }
 @page:left {
 	margin-right: 35mm;
 	@bottom-left {
-		font-family: "Athelas", "Palatino", "Avenir Next", sans-serif;
-		font-size: 11px;
+		font-family: "Greta Text Pro", "Athelas", "Palatino", "Avenir Next", sans-serif;
+		font-size: 9px;
 		content: "Page " counter(page) " of " counter(pages);
 	}
 }
 @page:right {
 	margin-left: 35mm;
 	@bottom-right {
-		font-family: "Athelas", "Palatino", "Avenir Next", sans-serif;
-		font-size: 11px;
+		font-family: "Greta Text Pro", "Athelas", "Palatino", "Avenir Next", sans-serif;
+		font-size: 9px;
 		content: "Page " counter(page) " of " counter(pages);
 	}
 }
 
-p.author {
+p.subtitle {
+	text-align: center;
 	font-weight: bold;
+	font-style: italic;
+	font-size: 115%;
+}
+
+p.author {
 	margin: 0em 1em 0em 0em;
 	display: inline-block;
+}
+
+p.author-list {
+	text-align: center;
+	font-weight: bold;
+	font-size: 125%;
 }
 
 p {
@@ -89,11 +101,18 @@ p {
 }
 
 blockquote {
-	font-family: "Gill Sans", "Avenir Next", sans-serif;
+	font-family: "Graublau Slab", "Gill Sans", "Avenir Next", sans-serif;
 	font-style: italic;
 }
 
-.author_affiliations {padding-left: 1em; margin-top:1em;}
+p.author_contributions {
+	font-size: 90%;
+	text-align: center;
+	font-style: italic;
+
+}
+
+.author_affiliations {padding-left: 1em; margin-top:2em;}
 .author_affiliations::before {
 	content: "Affiliations: ";
 	font-weight: bold;
@@ -101,10 +120,10 @@ blockquote {
 }
 .affiliation-item {
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
-.correspondence {display: none; padding-left: 1em; margin-top:1em;}
+.correspondence {padding-left: 1em; margin-top:2em;}
 .correspondence::before {
 	content: "Correspondence: ";
 	font-weight: bold;
@@ -112,9 +131,28 @@ blockquote {
 }
 .correspondence-item {
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 15px;
 }
 
+.email {padding-left: 1em; margin-top:2em;}
+.email::before {
+	content: "E-mail: ";
+	font-weight: bold;
+	color: grey;
+}
+.email-item {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+.abstract {padding-left: 1em; margin-top:2em;}
+.abstract::before {
+	content: "Abstract: ";
+	font-weight: bold;
+	color: grey;
+}
+
+.abstract {padding-left: 1em; margin-top:2em;}
 .date::before {
 	content: "Date: ";
 	font-weight: bold;
@@ -269,9 +307,6 @@ figure.fullwidth table {
  * Otherwise, it's just a pre (without .sourceCode) */
 div.sourceCode,
 pre:not(.sourceCode) {
-	padding: 1.4rem;
-	margin: -0.7rem -1.4rem;
-	width: 55%;
 	font-size: 0.9rem;
 	overflow-x: auto;
 }

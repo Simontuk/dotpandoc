@@ -13,14 +13,14 @@ output = $stdin.read
 # fixfont uses Cambria Math with a huge glyph range
 list = %w[⬄ ↔ ⇔ ⇄ ⇨ ⇦ → ← ⇳ Δ ⟳ ⟲ ‐ ⌲ ⌖ ⌽ ⌀ ⎆ ⎅ ⎌ ⎊ ⏎ ⌨︎]
 list.each do |ch|
-  output.gsub!(/#{ch}/, "\{\\fixfont#{ch}\}")
+  output.gsub!(/(?<!fixfont\{)(#{ch})(?!\})/, "\\fixfont\{#{ch}\}")
 end
 
 # make sure we perform font substitutions for characters that may not have a font entry
 # fixfontB uses Arial Unicode MS with a huge glyph range
 list = %w[⌦ ⌫ ⌘ ✉ ☢︎ ✆ ☠︎ ✎ ♂︎ ♀︎ ☍ ☤ ☁︎]
 list.each do |ch|
-  output.gsub!(/#{ch}/, "\{\\fixfontB#{ch}\}")
+  output.gsub!(/(?<!fixfontB\{)(#{ch})(?!\})/, "\\fixfontB\{#{ch}\}")
 end
 
 # ensure correct titlecase for Neuroscience terms
@@ -38,7 +38,7 @@ output.gsub!(/^\\includegraphics{/, '\\includegraphics[center]{')
 #output.gsub!(/^\\includegraphics\[([^\]]*)\]/, '\\includegraphics[\1,center]')
 
 # make sure reference typography is small and sans-font
-output.gsub!(/\\label{(.*(references|bibliography))}/, '\\label{\1}\\setstretch{0.75}\\sffamily\\small')
+output.gsub!(/\\label{(.*(references|bibliography))}/, '\\label{\1}\\sffamily\\small')
 
 # simplify DOI links
 output.gsub!(/\\url{https:\/\/doi.org\/([^\}]+)}/,'\\href{https://doi.org/\1}{doi:\1}')

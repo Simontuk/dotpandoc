@@ -16,14 +16,18 @@
       "Journal of Physiology": "J. Physiol.",
       "Journal of the Optical Society of America A": "J. Opt. Soc. Am. A",
       "Journal of Vision": "J. Vis.",
+      "Nature Communications": "Nat. Comm.",
       "Nature Reviews Neuroscience": "Nat. Rev. Neurosci.",
       "Nature Neuroscience": "Nat. Neurosci.",
       "Philosophical Transactions of the Royal Society B": "Phil. Trans. R. Soc. B",
-      "Proceedings of the Royal Society of London. B: Biological Sciences": "Proc. R. Soc. B",
+      "Proceedings of the Royal Society of London B: Biological Sciences": "Proc. R. Soc. Lond. B",
+      "Proceedings of the Royal Society of London": "Proc. R. Soc. Lond.",
       "Proceedings of the National Academy of Sciences USA": "PNAS",
+      "Proceedings of the National Academy of Sciences United States of America": "PNAS",
       "Scientific Reports": "Sci. Rep.",
       "Trends in Cognitive Sciences": "Trends Cog. Sci.",
-      "Trends in Neuroscience": "Trends Neurosci."
+      "Trends in Neuroscience": "Trends Neurosci.",
+      "Vision Research": "Vis. Res."
     }
   }
 }

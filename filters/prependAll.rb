@@ -3,18 +3,24 @@
 # paragraph at the start of the document;
 # as Word/ODT templates cannot handle this natively
 #
-# VERSION: 1.0.1
+# VERSION: 1.0.2
 
 require 'paru/filter'
 
 # here is our list of metadata to convert
-prepend_list = {:wordcount => "Wordcount", :comments => "Comments", 
-	:keywords => "Keywords", :abstract => "Abstract", :institute => "Affiliations"}
+	prepend_list = {
+		:comments => "Comments", 
+		:wordcount => "Wordcount", 
+		:conflicts => "Conflict of interest statement", 
+		:acknowledgements => "Acknowledgements", 
+		:contributions => "Author contributions",
+		:institute => "Affiliations",
+		:keywords => "Keywords"
+	}
 
 Paru::Filter.run do
 	prepend_list.each do |key,val|
 		next unless metadata.key?(key.to_s)
-
 		text = ''
 		kw = metadata[key.to_s]
 		if kw.is_a?(String)

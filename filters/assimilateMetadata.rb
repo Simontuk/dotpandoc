@@ -9,6 +9,9 @@
 #     afilliation: [1,2]
 #     correspondence: jdoe@example.ac.cn
 #     equal_contributor: true
+#   - name: John Doe
+#     affiliation: 2
+#     equal_contributor: true
 # institute:
 #   - 1: Institute of Cool
 #   - 2: Centre for Assimilation
@@ -17,7 +20,7 @@
 # You should be able to use several different input styles, including strings
 # like 'Joanna Doe^1,2^' and lists without specifying the name: subfield
 #
-# VERSION: 1.0.0
+# VERSION: 1.0.3
 
 require 'paru/filter'
 
@@ -33,7 +36,7 @@ end
 def instituteSuperscript(inst, index = 1)
 	cp = inst.match(/^\s?\^([\w\d]+)\^\s?/)
 	if cp.nil?
-		Hash['index' => index.to_s, 'name' => inst]
+		Hash['name' => inst]
 	else
 		Hash['index' => cp[1], 'name' => cp.post_match.strip]
 	end
@@ -76,6 +79,7 @@ Paru::Filter.run do
 	newAuthor = nil
 	newInst = nil
 	correspondenceList = []
+	emailList = []
 	equalContributors = false
 	#============Standardise author fields
 	authors = metadata['author']
@@ -91,10 +95,13 @@ Paru::Filter.run do
 			end
 
 			newAuthor[i] = fixAffiliations(newAuthor[i])
-
-			newAuthor[i]['correspondence'] = newAuthor[i]['email'] if newAuthor[i].key?('email')
+			
+			#newAuthor[i]['email'] = newAuthor[i]['correspondence'] if newAuthor[i].key?('correspondence')
 			if newAuthor[i].key?('correspondence')
 				correspondenceList.push(newAuthor[i]['name'] + ' <' + newAuthor[i]['correspondence'] + '>')
+			end
+			if newAuthor[i].key?('email')
+				emailList.push(newAuthor[i]['name'] + ' <' + newAuthor[i]['email'] + '>')
 			end
 
 			if newAuthor[i].key?('equal_contributor')
@@ -121,6 +128,7 @@ Paru::Filter.run do
 	metadata['author'] = newAuthor unless newAuthor.nil?
 	metadata['institute'] = newInst unless newInst.nil?
 	metadata['correspondence_list'] = correspondenceList unless correspondenceList.empty?
+	metadata['email_list'] = emailList unless emailList.empty?
 	metadata['equal_contributors'] = true if equalContributors == true
 	# just in case a template uses tags instead of keywords
 	metadata['tags'] = metadata['keywords'] if metadata['keywords']

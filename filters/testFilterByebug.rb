@@ -1,17 +1,22 @@
 #!/usr/bin/env ruby
 # testing filter, uses byebug to remote debug
 
+# DEBUG BLOCK START
 require 'byebug/core'
 require 'byebug'
 PORT = 1234
 warn "\n!!!DEBUG Server started: localhost:#{PORT} @ " + Time.now.to_s + "\n\n"
 Byebug.wait_connection = true
 Byebug.start_server('127.0.0.1', PORT)
+# DEBUG BLOCK END
+
+byebug
+
 require 'paru/filter'
 
 testKey = 'author'
 pmaticKey = 'pandocomatic-fileinfo'
-insertKey = 'name'
+insertKey = 'testname'
 
 Paru::Filter.run do
   byebug
@@ -19,7 +24,6 @@ Paru::Filter.run do
     if metadata.key?(pmaticKey) && (metadata[pmaticKey]['to'].match(/docx|odt/))
       stop!
     end
-    nau = nil[]
     au = metadata[testKey]
     if au.is_a?(String)
       nau = [ Hash[ insertKey => au ] ]
@@ -39,7 +43,7 @@ Paru::Filter.run do
       end
     end
     if not nau.nil?
-      metadata[testKey] = nau
+      metadata['testFilterOutput'] = nau
     end
   end
   if metadata['keywords']
