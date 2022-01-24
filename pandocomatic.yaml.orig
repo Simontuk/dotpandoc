@@ -23,11 +23,18 @@ templates:
   refs:
     pandoc:
       verbose: true # verbose by default
+<<<<<<< HEAD
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML and docx
       bibliography: All.json #JSON faster than BIB, symlinked to Pandoc data dir
       csl: csl/cell.csl
       citation-abbreviations: cite-abbr.json # my journal abbreviations
+=======
+      citeproc: true
+      bibliography: Core.json #JSON faster than BIB, symlinked within Pandoc data dir
+      csl: csl/cell-doi.csl
+      citation-abbreviations: cite-abbr.json # some journal abbreviations
+>>>>>>> upstream/master
       reference-links: true
       citeproc: true
     metadata:
@@ -106,9 +113,14 @@ templates:
         - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
       filter:
         #- filters/removeHR #remove horizontal rules
+<<<<<<< HEAD
         - filters/prependAll # prepends institute:, comments: and keywords: metadata into the text
         - filters/simplifyMetadata #collapse down metadata "author: [name: affiliation:]" to author:
         - filters/removeHR
+=======
+        - filters/prependAll.rb # prepends institute:, comments: and keywords: metadata into the text
+        - filters/simplifyMetadata.rb #collapse down metadata "author: [name: affiliation:]" to author:
+>>>>>>> upstream/master
       reference-doc: templates/custom.docx
     
 #-----------------------------------------------------------------------------
@@ -463,7 +475,13 @@ templates:
   eisvogel-logo:
     extends: [eisvogel]
     metadata:
+<<<<<<< HEAD
       titlepage-background: /Users/simonsteiger/.local/share/pandoc/templates/background7.pdf
+=======
+      titlepage-background: /Users/ian/Dropbox/Images/Logos/backgroundlogo.pdf
+      page-background:
+      page-background-opacity:
+>>>>>>> upstream/master
       titlepage-text-color: 555555
       titlepage-rule-color: 555555
 #-----------------------------------------------------------------------------
