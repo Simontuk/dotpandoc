@@ -20,6 +20,12 @@ templates:
       filter: pandoc-crossref # process crossrefs
     metadata:
       linkReferences: true
+#-----------------------------------------------------------------INDEXING
+  indexing: # use indexing filter
+    pandoc:
+      lua-filter: convertIndex.lua
+    metadata:
+      doindex: true
 #-----------------------------------------------------------------CITEPROC
   refs:
     pandoc:
@@ -29,29 +35,34 @@ templates:
       bibliography: All.json #JSON faster than BIB, symlinked to Pandoc data dir
       csl: csl/cell.csl
       citation-abbreviations: cite-abbr.json # my journal abbreviations
+      citeproc: true
+      bibliography: Core.json #JSON faster than BIB, symlinked within Pandoc data dir
+      csl: csl/apa-ian.csl
+      citation-abbreviations: cite-abbr.json # some journal abbreviations
       reference-links: true
       citeproc: true
     metadata:
       reference-section-title: Bibliography
       notes-after-punctuation: false
-      link-citations: true 
+      link-citations: true
+      link-bibliography: true
       csl-hanging-indent: true
 #-----------------------------------------------------------------------------BIBLATEX
   biblatex:
     pandoc:
-      verbose: true           # Verbose by default.
+      verbose: true # verbose by default
       biblatex: true            # Enable biblatex
       to: latex               # Has to be LaTeX output
       standalone: true        # Generate full document
       bibliography: Core.bib # The name of the bib-file.
     metadata:
-      biblatexoptions: [backend=biber,sorting=ynt]
+      biblatexoptions: []
       biblio-title: Bibliography # see variables for latex
-      biblio-style: authoryear-comp
+      biblio-style: []
 #-----------------------------------------------------------------------------NATBIB
   natbib:
     pandoc:
-      verbose: true           # Verbose by default.
+      verbose: true # verbose by default
       natbib: true            # Enable natbib
       to: latex               # Has to be LaTeX output
       standalone: true        # Generate full document
@@ -59,14 +70,25 @@ templates:
     metadata:
       biblio-title: Bibliography # see variables for latex
       biblio-style: numeric
-#-----------------------------------------------------------------------------PLAIN TXT
+#-----------------------------------------------------------------JATS
+  jats:
+    extends: [refs]
+    pandoc:
+      from: markdown
+      to: jats
+      standalone: true
+      lua-filter:
+        - filters/pagebreak.lua
+        - filters/abstract-section.lua
+        - filters/pretty-urls.lua
+#-----------------------------------------------------------------PLAIN TXT
   plain:
     pandoc:
       from: markdown
       to: plain
       template: templates/custom.plain
       standalone: true
-      verbose: true
+      verbose: true # verbose by default
       wrap: auto
       columns: 80
       tab-stop: 4
@@ -81,7 +103,6 @@ templates:
         - filters/prependAuthor.rb #prepends authors
       lua-filter:
         - filters/modifyHeadings.lua #makes headings stand out a bit more
-        #- filters/removeEmphasis.lua # remove emphasis for plain and turn strong to UPPER
 #-----------------------------------------------------------------PLAIN REFS
   plain-refs:
     extends: [plain,refs]
@@ -96,8 +117,77 @@ templates:
       from: markdown
       to: icml
       standalone: true
+      verbose: true # verbose by default
       template: templates/custom.icml
+#-----------------------------------------------------------------
+#::::::::::::::::::::::::::: TYPST :::::::::::::::::::::::::::::::
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------Standard
+  typst:
+    preprocessors: [preprocessors/removeImageDimensions.rb] 
+    pandoc:
       verbose: true
+      from: markdown
+      to: typst
+      standalone: true
+      template: custom.typst
+      table-of-contents: true
+      metadata-file: typst-plain.yaml
+      wrap: none
+      filter:
+        - filters/assimilateMetadata.rb
+      lua-filter:
+        - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
+        - filters/typstFix.lua
+        - filters/convertIndex.lua
+        - filters/list-table.lua
+        - filters/abstract-section.lua
+        - filters/pretty-urls.lua
+    metadata:
+      doindex: false
+      linestretch: '1.75'
+#-----------------------------------------------------------------
+  typst-refs:
+    extends: [typst,refs]
+    pandoc:
+      to: typst-citations
+#-----------------------------------------------------------------
+  typstpdf:
+    extends: typst-refs
+    cleanup: [postprocessors/typst2pdf]
+#-----------------------------------------------------------------
+  typst-titlepage:
+    extends: [typst-refs]
+    metadata:
+      titlepage: true
+      titlepage-background: background.svg # WARNING: must be relative to compile folder
+#-----------------------------------------------------------------
+  typst-titlepage-pdf:
+    extends: [typstpdf]
+    metadata:
+      titlepage: true
+      titlepage-background: background.svg # WARNING: must be relative to compile folder
+#-----------------------------------------------------------------
+  typst-full:
+    extends: [crossref,typst-refs]
+    metadata:
+      doindex: true
+#-----------------------------------------------------------------
+  typst-nativerefs:
+    extends: typst
+    pandoc:
+      to: typst
+      bibliography: Core.bib
+      csl: csl/apa-ian.csl
+#-----------------------------------------------------------------
+  lapreprint:
+    extends: typst
+    pandoc:
+      to: typst
+      template: lapreprint.typst
+      toc: false
+    metadata:
+
 #-----------------------------------------------------------------
 #:::::::::::::::::::::::::::: DOCX :::::::::::::::::::::::::::::::
 #-----------------------------------------------------------------
@@ -107,26 +197,33 @@ templates:
       from: markdown
       to: docx
       standalone: true
-      lua-filter:
-        - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
-        - filters/abstract-section.lua # move an abstract heading to metadata
-        - filters/pretty-urls.lua # clean up URLs a bit
+      verbose: true # verbose by default
       filter:
         #- filters/removeHR #remove horizontal rules
         - filters/prependAll.rb # prepends institute:, comments: and keywords: metadata into the text
         - filters/simplifyMetadata.rb #collapse down metadata "author: [name: affiliation:]" to author:
+      lua-filter:
+        - filters/convertIndex.lua # enable indexing
+        - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
+        - filters/abstract-section.lua # move an abstract heading to metadata
+        - filters/pretty-urls.lua # clean up URLs a bit
       reference-doc: templates/custom.docx
 #-----------------------------------------------------------------DOCX REFS
   docx-refs:
     extends: [docx,refs]
-#-----------------------------------------------------------------DOCX NSFC
-  docx-refs-nsfc:
-    extends: [docx,refs]
+#-----------------------------------------------------------------DOCX standard fonts
+  docx-refs-calibri:
+    extends: [docx-refs]
     pandoc:
-      reference-doc: templates/custom.docx
+      reference-doc: templates/custom-calibri.docx
+#-----------------------------------------------------------------DOCX REFS
+  docx-letter:
+    extends: [docx-refs]
+    pandoc:
+      reference-doc: '/Users/ian/Library/CloudStorage/Dropbox/Work/CAS-Letterhead-2.docx'
 #-----------------------------------------------------------------DOCX CROSSREF
   docx-crossref:
-    extends: [docx,refs,crossref]
+    extends: [docx-refs,crossref]
 #-----------------------------------------------------------------DOCX NUMBERING
   docx-native-numbering:
     extends: [docx,refs]
@@ -153,6 +250,12 @@ templates:
     pandoc:
       to: odt
       reference-doc: templates/custom.odt
+#-----------------------------------------------------------------ODT standard fonts
+  odt-refs-calibri:
+    extends: [docx,refs]
+    pandoc:
+      to: odt
+      reference-doc: templates/custom-calibri.odt
 #-----------------------------------------------------------------
 #:::::::::::::::::::::::: PRESENTATIONS ::::::::::::::::::::::::::
 #-----------------------------------------------------------------
@@ -190,6 +293,57 @@ templates:
 #-----------------------------------------------------------------
 #:::::::::::::::::::::::::::: LATEX ::::::::::::::::::::::::::::::
 #-----------------------------------------------------------------
+  latex-tufte:
+    extends: [biblatex]
+    pandoc:
+      from: markdown
+      to: latex-smart # turn off smart to leave — … “” etc. as unicode, needs xetex or luatex
+      standalone: true
+      lua-filter:
+        - filters/pretty-urls.lua # clean up URLs a bit
+      template: templates/tufte-book.latex
+    metadata:
+      documentclass: 'tufte-book' # also: tufte-handout
+      lang: 'en-GB'
+      papersize: a4
+      #linestretch: 1.4
+      #biblio-style: verbose #verbose for biblatex, plainnat for natbib
+      biblatexoptions:
+        - autocite=footnote
+      classoption:
+        #- debug
+        #- nobib # !!! needed with V3.5.2 & biblatex
+        #- notoc # disbles Tufte TOC style
+        #- nofonts #do not auto-specify fonts
+        #- symmetric # note this is buggy...
+        - sfsidenotes # sans-serif side notes
+        - british
+        - justified
+      publisher: Octopoda Publishing • Shanghai • China
+      epigraph:
+        - author: Anaïs Nin
+          text: "“We don’t see things as they are, we see them as we are.”"
+        - author: Michael Shermer
+          text: "“Humans are pattern-seeking story-telling animals, and we are quite adept at telling stories about patterns, whether they exist or not.”"
+      dedication: |
+        This book is was written to honour all the myriad cephalopods in the deep blue sea…
+      copyright-link: https://creativecommons.org/licenses/by-nc-sa/4.0/
+      copyright-image: /Users/ian/Code/dotpandoc/by-nc-sa.png
+      copyright: |
+        © Creative Commons CC BY-NC-SA 4.0 — This license enables reusers to distribute, remix, adapt, and build upon the material in any medium or format for noncommercial purposes only, and only so long as attribution is given to the creator. If you remix, adapt, or build upon the material, you must license the modified material under identical terms. CC BY-NC-SA includes the following elements:  BY: credit must be given to the creator.  NC: Only noncommercial uses of the work are permitted.  SA: Adaptations must be shared under the same terms.
+      mainfont: 'Alegreya'
+      mainfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
+      sansfont: 'Alegreya Sans'
+      sansfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
+      monofont: 'Fantasque Sans Mono'
+      mathfont: 'STIX Two Math'
+      mathfontoptions: 'math-style=ISO,bold-style=ISO'
+      colorlinks: true
+      linkcolor: Mahogany
+      citecolor: Sepia
+      urlcolor: BrickRed
+      listings: false
+#-----------------------------------------------------------------
   latex:
     preprocessors:
       #- preprocessors/removeImageDimensions.rb # remove image dimensions
@@ -197,9 +351,11 @@ templates:
       from: markdown
       to: latex-smart # turn off smart to leave — … “” etc. as unicode, needs xetex or luatex
       standalone: true
+      verbose: true # verbose by default
       filter: 
         - filters/assimilateMetadata.rb # handle academic metadata
       lua-filter:
+        - filters/convertIndex.lua
         - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
         - filters/abstract-section.lua # move an abstract heading to metadata
         - filters/pretty-urls.lua # clean up URLs a bit
@@ -218,13 +374,15 @@ templates:
       monofont: 'Rec Mono Duotone'
       mathfont: 'STIX Two Math'
       mathfontoptions: 'math-style=ISO,bold-style=ISO'
-      #CJKmainfont: 'Heiti SC'
+      #CJKmainfont: 'Heiti SC' # need to install xecjk in tinytex
+      #CJKsansfont: 'Heiti SC' # need to install xecjk in tinytex
       colorlinks: true
       linkcolor: Mahogany
       citecolor: Sepia
       urlcolor: BrickRed
       lang: 'en-GB'
       nonumberfigures: true # I use Scrivener autonumbering, so disable for LaTeX
+      doindex: false # don't add index by default
     postprocessors: 
       - postprocessors/fixLaTeX.rb
 #-----------------------------------------------------------------
@@ -239,6 +397,11 @@ templates:
 #-----------------------------------------------------------------
   latex-refs:
     extends: [latex, refs]
+#-----------------------------------------------------------------
+  latex-index:
+    extends: [latex-crossref]
+    metadata:
+      doindex: true
 #-----------------------------------------------------------------
   pdf-refs:
     extends: latex-refs
@@ -333,6 +496,7 @@ templates:
       to: latex-smart # turn off smart leaves — … “” as unicode
       pdf-engine: 'xelatex'
       standalone: true
+      verbose: true # verbose by default
       template: templates/leaflet.latex
     metadata:
       mainfont: 'Greta Text Pro'
@@ -362,41 +526,42 @@ templates:
 #   signature : Image file for a signature.
 #   signature-before, signature-after : Allows adjustment of vertical space surrounding signature.
   latex-letter:
-    extends: natbib
+    extends: refs
     pandoc:
       from: markdown
       to: latex-smart # turn off smart leaves — … “” as unicode
       pdf-engine: xelatex
       standalone: true
+      verbose: true # verbose by default
       template: templates/letter.latex
       lua-filter:
         - filters/pretty-urls.lua # clean up URLs a bit
     metadata:
       papersize: a4
       return-address: |
-        Cognitive \& Behavioural Analysis Platform  
+        Cognitive-Behavioural Research Platform  
         Institute of Neuroscience, CAS  
         Room 307, Systems Building  
-        320 Yueyang Rd, Shanghai 200031, CHINA  
+        320 Yueyang Rd, Shanghai  
+        200031, CHINA  
         ✉ <i.andolina@ion.ac.cn>  
         ✆ +86 021 54921747  
       author: |
         Ian Max Andolina Ph.D.  
-        Director, Cognitive \& Behavioural Analysis Platform
-      opening: To whom it may concern,
-      closing: Sincerely yours,
-      mainfont: 'Graublau Sans'
+        Director, Cognitive \& Behavioural Research Platform  
+      opening: To whom it may concern,  
+      closing: Sincerely yours,  
+      mainfont: 'Alegreya'
       mainfontoptions: 'Numbers=OldStyle,Numbers=Proportional'
       monofont: 'Rec Mono Duotone'
       mathfont: 'STIX Two Math'
       mathfontoptions: 'math-style=ISO,bold-style=ISO'
-      CJKmainfont: 'PingFang SC'
-      fontsize: '11pt'
+      fontsize: '12pt'
       linestretch: '1.2'
-      letterhead: "/Users/ian/Dropbox/Work/ION-Letterhead.pdf"
-      signature: "/Users/ian/Dropbox/Work/Ian-Signature.png"
-      signature-width: 45mm
-      signature-before: -11ex
+      letterhead: "/Users/ian/Library/CloudStorage/Dropbox/Work/CEBSIT-Letterhead.pdf"
+      signature: "/Users/ian/Library/CloudStorage/Dropbox/Work/Ian-Signature-Small.png"
+      signature-width: 50mm
+      signature-before: -10.5ex
       signature-after: -1.5ex
       closing-indentation: 12pt
       links-as-notes: false
@@ -405,7 +570,7 @@ templates:
       citecolor: Sepia
       urlcolor: BrickRed
       lang: 'en-GB'
-      geometry: ['margin=1.2cm','top=2.1cm']
+      geometry: ['margin=1.2cm','top=2cm']
       biblio-style: numeric
     postprocessors:
       - postprocessors/fixLaTeX.rb
@@ -419,15 +584,16 @@ templates:
       from: markdown
       to: latex-smart # turn off smart leaves — … “” as unicode
       standalone: true
+      filter: 
+        - filters/assimilateMetadata.rb # handle academic matadata
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML, DOCX, ODT & EPUB
         - filters/abstract-section.lua # move an abstract heading to metadata
         - filters/pretty-urls.lua # clean up URLs a bit
-      filter: 
-        - filters/assimilateMetadata.rb # handle academic matadata
+        - filters/list-table.lua
       template: templates/eisvogel.latex
       toc: true
-      shift-heading-level-by: 1
+      shift-heading-level-by: 0
     metadata: 
       book: false 
       titlepage: true
@@ -448,8 +614,8 @@ templates:
       monofont: 'Rec Mono Duotone'
       mathfont: 'STIX Two Math'
       mathfontoptions: 'math-style=ISO,bold-style=ISO'
-      CJKmainfont: 'PingFang SC'
-      CJKsansfont: 'PingFang SC'
+      #CJKmainfont: 'Heiti SC' # need to install xecjk in tinytex
+      #CJKsansfont: 'Heiti SC' # need to install xecjk in tinytex
       fontsize: '12pt'
       linestretch: '1.5'
       colorlinks: true
@@ -463,7 +629,7 @@ templates:
       header-left: 
       header-center:
       footer-right:
-      footer-left: 
+      footer-left: " "
       footer-center:
       footnotes_pretty: true
       footnotes-disable-backlinks: false
@@ -550,6 +716,7 @@ templates:
     pandoc:
       from: markdown
       to: html5
+      verbose: true # verbose by default
       embed-resources: true
       number-sections: false
       section-divs: true
@@ -569,8 +736,8 @@ templates:
       document-css: true #use the html partial
       document-css: true #use the html partial
       lang: 'en-GB'
-      mainfont: "'Greta Sans Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif"
-      monofont: "'Fantasque Sans mono','Fira code','Jetbrains Mono',menlo,consolas,monospace"
+      mainfont: Alegreya Sans, Greta Sans Pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif"
+      monofont: Rec Mono Duotone, Fira code, Jetbrains Mono, menlo, consolas, monospace
       linestretch: 1.3
       fontsize: 20
       fontcolor: "#1A1A1A"
@@ -635,6 +802,7 @@ templates:
       from: markdown
       to: html5
       standalone: true
+      verbose: true # verbose by default
       section-divs: true
       mathjax: true
       lua-filter:
@@ -662,6 +830,7 @@ templates:
       to: html5
       section-divs: true
       standalone: true
+      verbose: true # verbose by default
       mathjax: true
       lua-filter:
         - filters/pagebreak.lua # use \newpage{} also for HTML and docx
@@ -692,6 +861,7 @@ templates:
       from: markdown
       to: epub
       standalone: true
+      verbose: true # verbose by default
       self-contained: true
     metadata:
       stylesheet: epub.css
@@ -702,13 +872,15 @@ templates:
 # VARIOUS TEST TEMPLATES
 #-----------------------------------------------------------------
   test:
+    setup: 
+      - scripts/test.elv
     pandoc:
       from: markdown
-      to: html5
+      to: plain
       standalone: true
-      css: templates/custom.css
-      self-contained: true
-      mathjax: true
+      verbose: true # verbose by default
+      lua-filter: 
+        #- filters/lua-log.lua
       filter:
         - filters/noop.rb
     metadata:
@@ -719,6 +891,7 @@ templates:
       from: markdown
       to: html5
       standalone: true
+      verbose: true # verbose by default
       self-contained: true
       filter:
         - filters/testFilter.rb
@@ -731,6 +904,7 @@ templates:
       to: markdown
       output: out.md
       standalone: true
+      verbose: true # verbose by default
       filter: 
         - filters/testFilter.rb
     metadata:

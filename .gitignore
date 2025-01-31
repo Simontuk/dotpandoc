@@ -13,3 +13,6 @@ pandoclog.json
 *.xdv
 *.blg
 *.out
+
+/.luarc.json
+custom/lapreprint.pdf

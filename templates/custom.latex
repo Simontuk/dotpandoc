@@ -1,13 +1,4 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-$if(colorlinks)$
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-$endif$
-$if(CJKmainfont)$
-\PassOptionsToPackage{space}{xeCJK}
-$endif$
-%
+$passoptions.latex()$
 \documentclass[
 $if(fontsize)$
   $fontsize$,
@@ -15,69 +6,10 @@ $endif$
 $if(papersize)$
   $papersize$paper,
 $endif$
-$if(beamer)$
-  ignorenonframetext,
-$if(handout)$
-  handout,
-$endif$
-$if(aspectratio)$
-  aspectratio=$aspectratio$,
-$endif$
-$endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
 ]{$documentclass$}
-$if(beamer)$
-$if(background-image)$
-\usebackgroundtemplate{%
-  \includegraphics[width=\paperwidth]{$background-image$}%
-}
-$endif$
-\usepackage{pgfpages}
-\setbeamertemplate{caption}[numbered]
-\setbeamertemplate{caption label separator}{: }
-\setbeamercolor{caption name}{fg=normal text.fg}
-\beamertemplatenavigationsymbols$if(navigation)$$navigation$$else$empty$endif$
-$for(beameroption)$
-\setbeameroption{$beameroption$}
-$endfor$
-% Prevent slide breaks in the middle of a paragraph
-\widowpenalties 1 10000
-\raggedbottom
-$if(section-titles)$
-\setbeamertemplate{part page}{
-  \centering
-  \begin{beamercolorbox}[sep=16pt,center]{part title}
-    \usebeamerfont{part title}\insertpart\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{section page}{
-  \centering
-  \begin{beamercolorbox}[sep=12pt,center]{part title}
-    \usebeamerfont{section title}\insertsection\par
-  \end{beamercolorbox}
-}
-\setbeamertemplate{subsection page}{
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center]{part title}
-    \usebeamerfont{subsection title}\insertsubsection\par
-  \end{beamercolorbox}
-}
-\AtBeginPart{
-  \frame{\partpage}
-}
-\AtBeginSection{
-  \ifbibliography
-  \else
-    \frame{\sectionpage}
-  \fi
-}
-\AtBeginSubsection{
-  \frame{\subsectionpage}
-}
-$endif$
-$endif$
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -416,17 +348,26 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-$if(dir)$
+$after-header-includes.latex()$
+$hypersetup.latex()$
+
+% use Cambria/Arial Unicode to fix some font substitution problems for e.g. ⬄
 \ifPDFTeX
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
+\else
+\newfontfamily\C[]{PingFang SC}
+\newfontfamily\fixfont[]{Cambria Math}
+\newfontfamily\fixfontB[]{Arial Unicode MS}
 \fi
+
+$if(doindex)$
+\usepackage{makeidx}
+\let\indext\index
+\makeindex
+$endif$
+
+$if(nonumberfigures)$
+\usepackage[format=hang,labelfont=bf,labelsep=endash,font={sf,small}]{caption}
+\captionsetup[figure]{labelformat=empty}% redefines the caption setup of the figures environment
 $endif$
 
 \usepackage{orcidlink}
@@ -506,15 +447,12 @@ $endif$
 \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
-$if(beamer)$
-$else$
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
-$endif$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
@@ -530,7 +468,7 @@ $if(institute)$
 \institute{$for(institute)$$if(it.index)$\textsuperscript{$it.index$}$endif$ $it.name$$sep$ \and $endfor$}
 $endif$
 $if(titlegraphic)$
-\titlegraphic{\includegraphics{$titlegraphic$}}
+\titlegraphic{\includegraphics$if(titlegraphicoptions)$[$for(titlegraphicoptions)$$titlegraphicoptions$$sep$, $endfor$]$endif${$titlegraphic$}}
 $endif$
 $if(logo)$
 \logo{\includegraphics{$logo$}}
@@ -542,38 +480,38 @@ $if(has-frontmatter)$
 \frontmatter
 $endif$
 $if(title)$
-$if(beamer)$
-\frame{\titlepage}
-$else$
 \maketitle
-$endif$
 
-\begin{center}
 $if(logo)$
+\begin{center}
 \vspace{-1em}\includegraphics[width=$if(logo-width)$$logo-width$$else$100$endif$pt, center]{$logo$}\vspace{-0.8em}
+\end{center}
 $endif$
-
 $if(institute)$
+\begin{center}
 \textsf{$for(institute)$\textsuperscript{$it.index$} $it.name$$sep$\quad\&\quad$endfor$}
+\end{center}
 $endif$
-
 $if(correspondence_list)$
+\begin{center}
 \ifPDFTeX
 \textsf{$for(correspondence_list)$* \emph{$it$}$sep$ \quad $endfor$}
 \else
 \textsf{$for(correspondence_list)$\fixfontB{✻} \emph{$it$}$sep$ \quad $endfor$}
 \fi
-$endif$
-
-$if(equal_contributors)$
-\textsf{\textsuperscript{†} \small{\emph{These authors contributed equally to this work.}}}
-$endif$
-
-$if(email_list)$
-\textsf{\small{\emph{Mail: $for(email_list)$$it$$sep$, $endfor$}}}
-$endif$
-
 \end{center}
+$endif$
+$if(equal_contributors)$
+\begin{center}
+\textsf{\textsuperscript{†} \small{\emph{These authors contributed equally to this work.}}}
+\end{center}
+$endif$
+$if(email_list)$
+\begin{center}
+\textsf{\small{\emph{Mail: $for(email_list)$$it$$sep$, $endfor$}}}
+\end{center}
+$endif$
+
 
 $if(abstract)$
 \begin{abstract}
@@ -590,14 +528,6 @@ $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
 $endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]
-$if(toc-title)$
-  \frametitle{$toc-title$}
-$endif$
-  \tableofcontents[hideallsubsections]
-\end{frame}
-$else$
 {
 $if(colorlinks)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$$endif$}
@@ -605,7 +535,6 @@ $endif$
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 }
-$endif$
 $endif$
 $if(lof)$
 \listoffigures
@@ -633,28 +562,19 @@ $else$
 \renewcommand\refname{$biblio-title$}
 $endif$
 $endif$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-$endif$
-  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-$if(beamer)$
-\end{frame}
-$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
 
 $endif$
 $endif$
 $if(biblatex)$
-$if(beamer)$
-\begin{frame}[allowframebreaks]{$biblio-title$}
-  \bibliographytrue
-  \printbibliography[heading=none]
-\end{frame}
-$else$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-$endif$
 
 $endif$
+
+$if(doindex)$
+\printindex
+$endif$
+
 $for(include-after)$
 $include-after$
 
