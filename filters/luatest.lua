@@ -42,6 +42,7 @@ without running an IDE:
 But Zerobrane offers richer functionality…
 ]]
 
+<<<<<<< HEAD
 md = require("mobdebug")
 md.start()
 
@@ -57,10 +58,32 @@ end
 
 function Emph(elem)
 	md.pause() --breakpoint
+=======
+sp = require("serpent") -- use as print(sp.dump(object))
+md = require("mobdebug")
+--md.start()
+
+function Meta(m)
+	--md.pause() --breakpoint
+	return m
+end
+
+function Cite(elem)
+	--md.pause() --breakpoint
+	return elem
+end
+
+function Emph(elem)
+	--md.pause() --breakpoint
+>>>>>>> upstream/master
 	return elem.content
 end
 
 function Strong(elem)
+<<<<<<< HEAD
 	md.pause() --breakpoint
+=======
+	--md.pause() --breakpoint
+>>>>>>> upstream/master
 	return pandoc.SmallCaps(elem.content)
 end

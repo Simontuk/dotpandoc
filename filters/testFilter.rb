@@ -6,7 +6,11 @@
 # In VSCode: https://marketplace.visualstudio.com/items?itemName=KoichiSasada.vscode-rdbg
 
 # DEBUG BLOCK START
+<<<<<<< HEAD
 require 'debug/open_nonstop' # debug gem https://github.com/ruby/debug
+=======
+require 'debug/open_nonstop' 
+>>>>>>> upstream/master
 require 'paru/filter'
 
 testKey = 'author'
